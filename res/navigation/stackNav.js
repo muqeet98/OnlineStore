@@ -12,6 +12,7 @@ import Login from "../Screens/Login/index";
 import ProductDetail from "../Screens/Home/Category/ProductDetail/index";
 import CategoriesHeader from "../Screens/Home/HeaderView/CategoriesHeader/index";
 import Cart from "../Screens/Cart/index";
+import SubCategories from "../Screens/Home/ShopCategory/SubCategories/index";
 //Width Height
 const Width = Dimensions.get('screen').width;
 const Height = Dimensions.get('screen').height;
@@ -30,6 +31,7 @@ export default function MainTab({navigation}) {
 		<Stack2.Screen name="ProductDetail" component={ProductDetail}/>
 		<Stack2.Screen name="CategoriesHeader" component={CategoriesHeader}/>
 		<Stack2.Screen name="Cart" component={Cart}/>
+		<Stack2.Screen name="SubCategories" component={SubCategories}/>
 	    </Stack2.Navigator>
 	);
 

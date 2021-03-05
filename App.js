@@ -23,23 +23,32 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer,DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 //route 
 import MainTab from "./res/navigation/stackNav";
 const Stack = createStackNavigator();
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgb(255, 45, 85)',
+  },
+
+};
 const App: () => React$Node = () => {
+
   return (
-    <NavigationContainer>
-    <Stack.Navigator initialRouteName="Main">
+    <NavigationContainer theme={MyTheme}>
+    <Stack.Navigator initialRouteName="Main" >
       <Stack.Screen
         name="Main"
         component={MainTab}
         options={{ headerShown: false }}
       />
-      
+       
     </Stack.Navigator>
   </NavigationContainer>
 

@@ -12,8 +12,8 @@ const Home = ({ navigation }) => {
     <ScrollView style={styles.MainContainer}>
        <HeaderView navigation={navigation}/> 
        <Category navigation={navigation}/>
-       <ShopCategory/>
-       <Category/>
+       <ShopCategory navigation={navigation}/>
+       <Category navigation={navigation}/>
     </ScrollView>
   );
 };

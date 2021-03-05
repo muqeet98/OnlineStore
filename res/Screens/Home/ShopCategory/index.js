@@ -1,53 +1,26 @@
 // ./screens/Home.js
 
 import React from "react";
-import { View, Button, Text, StyleSheet , TouchableOpacity,TextInput, FlatList,Image} from "react-native";
+import { View, Button, Text, StyleSheet , TouchableOpacity,TextInput, FlatList,Image, ToastAndroid, Alert} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from "./styles";
-const data = [
-   {
-       id: "1",
-       price: '15',
-       name: 'Salimbasmati faislabadi rice ',
-       pic:'https://www.kitchensanctuary.com/wp-content/uploads/2019/08/How-to-boil-rice-square-FS-6126-500x500.jpg'
-   },
-
-   {
-    id: 2,
-    price: '40',
-    name: 'floor',
-    pic: 'https://cdn.metro-online.pk/dashboard/prod-pic/LHE-01262/12620282-0-M.jpg?5'
-},
-
-{
-    id: 3,
-    price: '60',
-    name: 'tea',
-    pic: 'https://www.kitchensanctuary.com/wp-content/uploads/2019/08/How-to-boil-rice-square-FS-6126-500x500.jpg'
-},
-{
-    id: 4,
-    price: '15',
-    name: 'rice',
-    pic: 'https://www.kitchensanctuary.com/wp-content/uploads/2019/08/How-to-boil-rice-square-FS-6126-500x500.jpg'
-},
-]
-
+// import Atta from "../../constants";
 const index = ({navigation}) => {
 
-    const [dataD]= React.useState(data);
-
+    // const [dataD]= React.useState(data);
+//  console.log(JSON.stringify(CONTENT));
     const itemlist= (item) => {
-        console.log("hai",navigation);
+        console.log("hai zia",JSON.stringify(item.item.subcategory));
         return(
             <View>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=> navigation.navigate("SubCategories",{data: item.item.subcategory})}>
             <View style={styles.itemContainer}>
                 <View style={{borderColor:'#ec6805', borderWidth: 1,borderRadius: 20}}>
                     <Image source={{uri: item.item.picture}} style={styles.ImageView}/>   
                 </View>
                  <View >
                  <Text style={styles.text2}>{item.item.category_name}</Text>
+                 
                  </View>
             </View>
             </TouchableOpacity>
@@ -90,6 +63,76 @@ const index = ({navigation}) => {
 
 export default index;
 
+const Products = [
+  {
+		p_id: 3,
+		price: '60',
+		name: 'Mango',
+		pic: 'https://pbs.twimg.com/profile_images/702112096109121536/xAPaPWiM_400x400.jpg'
+	},
+	{
+		p_id: 4,
+		price: '15',
+		name: 'Water Melon',
+		pic: 'https://dtgxwmigmg3gc.cloudfront.net/imagery/assets/derivations/icon/256/256/true/eyJpZCI6ImFlYzQ2ZGM5M2M4YTQ0ZjJiYzJhNzJlYWFhODFkNDViIiwic3RvcmFnZSI6InB1YmxpY19zdG9yZSJ9?signature=26e27c50dfa812c22691019c13fe9c0ee2d75883ed72c1b29d3ca63d5dba7ab9'
+	},
+	{
+		p_id: '1',
+		price: '15',
+		name: 'Banana',
+		pic: 'https://ui.assets-asda.com/dm/asdagroceries/0000000005227_T1?defaultImage=asdagroceries/noImage&resMode=sharp2&id=fqaSJ3&fmt=jpg&fit=constrain,1&wid=256&hei=256'
+	},
+
+	{
+		p_id: 2,
+		price: '40',
+		name: 'Apple',
+		pic:  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE3sjd94Mtn8tJ3elJNM-1b6HPiux11PXnsg&usqp=CAU'
+	},
+
+
+];
+
+
+const Products2 = [
+	{
+		p_id: '1',
+		price: '15',
+		name: 'Palak ',
+		pic: 'https://cdn.mydukaan.io/v1/image/256x256/70641/d8d7f537-6777-46e3-89b4-fbdc58b79489.png'
+	},
+
+	{
+		p_id: 2,
+		price: '40',
+		name: 'Methi',
+		pic: 'https://cdn.metro-online.pk/dashboard/prod-pic/LHE-01262/12620282-0-M.jpg?5'
+	},
+
+];
+
+const Atta = [
+	{
+		p_id: 1,
+		price: '250',
+		name: 'Chakki Atta ',
+		pic: 'https://cdn.mydukaan.io/v1/image/256x256/70641/d8d7f537-6777-46e3-89b4-fbdc58b79489.png'
+	},
+
+	{
+		p_id: 3,
+		price: '40',
+		name: '',
+		pic: 'https://cdn.metro-online.pk/dashboard/prod-pic/LHE-01262/12620282-0-M.jpg?5'
+	},
+    	{
+		p_id: 4,
+		price: '40',
+		name: 'Maida',
+		pic: 'https://cdn.metro-online.pk/dashboard/prod-pic/LHE-01262/12620282-0-M.jpg?5'
+	},
+
+];
 
 
 const CONTENT = [
@@ -99,25 +142,25 @@ const CONTENT = [
       picture: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png',
       name: 'muqeet',
       subcategory: [
-        { id: 1, val: 'Sub Cat 1', pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' },
-        { id: 3, val: 'Sub Cat 3', pic: 'https://homepages.cae.wisc.edu/~ece533/images/peppers.png' },
-        { id: 4, val: 'Sub Cat 4' , pic:'https://homepages.cae.wisc.edu/~ece533/images/boat.png'},
-        { id: 5, val: 'Sub Cat 5' , pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png'}, 
+        { id: 1, val: 'Fruits', pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png', products: Products },
+          { id: 3, val: 'Leaf vegitable', pic: 'https://homepages.cae.wisc.edu/~ece533/images/peppers.png' , products: Products2},
+        { id: 4, val: 'Salad' , pic:'https://homepages.cae.wisc.edu/~ece533/images/boat.png' , products: Products},
+        { id: 5, val: 'Sub Cat 5 floor and meet' , pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' , products: Products},               
       ],
     },
     {
       isExpanded: false,
       category_name: 'Groceries',
-      picture: 'https://cdn.metro-online.pk/dashboard/prod-pic/LHE-01262/12620282-0-M.jpg?5',
+      picture: 'https://i.ndtvimg.com/i/2016-02/grocery-625_625x350_51455788506.jpg',
       name: 'zia',
       subcategory: [
-        { id: 6, val: 'Sub Cat 4' , pic:'https://homepages.cae.wisc.edu/~ece533/images/boat.png'},
-        { id: 7, val: 'Sub Cat 5' , pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png'}, 
-        { id: 8, val: 'Sub Cat 1', pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' },
-        { id: 9, val: 'Sub Cat 3', pic: 'https://homepages.cae.wisc.edu/~ece533/images/peppers.png' },
-        { id: 10, val: 'Sub Cat 1', pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' },
-        { id: 11, val: 'Sub Cat 3', pic: 'https://homepages.cae.wisc.edu/~ece533/images/peppers.png' },
-        { id: 12, val: 'Sub Cat 1', pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' },
+        { id: 6, val: 'Atta & Flour' , pic:'https://qne.com.pk/assets/images/products/product_images/detail_img/8344_detail_img.jpg' , products: Atta},
+        // { id: 7, val: 'Pulses' , pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png'}, 
+        // { id: 8, val: 'Rice', pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' },
+        // { id: 9, val: 'Ghee', pic: 'https://homepages.cae.wisc.edu/~ece533/images/peppers.png' },
+        // { id: 10, val: 'Milk & Milk Products', pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' },
+        // { id: 11, val: 'Organic Staples', pic: 'https://homepages.cae.wisc.edu/~ece533/images/peppers.png' },
+        
       ],
     },
     {
@@ -126,7 +169,7 @@ const CONTENT = [
       name: 'umer',
       picture: 'https://www.tazaonline.com/wp-content/uploads/2019/03/Skin-care-300x300.jpg',
       subcategory: [
-        { id: 13, val: 'Sub Cat 7',  pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' },
+        { id: 13, val: 'Sub Cat 7',  pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' ,  },
         { id: 14, val: 'Sub Cat 9', pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' },
         { id: 15, val: 'Sub Cat 1', pic: 'https://homepages.cae.wisc.edu/~ece533/images/fruits.png' },
         { id: 16, val: 'Sub Cat 3', pic: 'https://homepages.cae.wisc.edu/~ece533/images/peppers.png' },
