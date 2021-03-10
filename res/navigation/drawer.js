@@ -1,5 +1,5 @@
 
-
+import { Share, View, Button } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView,DrawerItem,DrawerItemList } from "@react-navigation/drawer";
 import { createStackNavigator } from '@react-navigation/stack';
 import { DrawerActions } from '@react-navigation/native';  
@@ -11,6 +11,26 @@ const Drawer = createDrawerNavigator();
 
 
 const CustomDrawerContent= ({navigation})=> {
+
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:'App Link Sharing Testing https://play.google.com/store/apps/dev?id=7064049075652771302',
+        url:'https://play.google.com/store/apps/dev?id=7064049075652771302'
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
     return (
       <DrawerContentScrollView >
 
@@ -42,6 +62,22 @@ const CustomDrawerContent= ({navigation})=> {
           label="Notification"
         //   onPress={() => navigation.navigate("LoginForm")}
         />
+          <DrawerItem
+          label="Share"
+          onPress={() =>{ onShare(),  navigation.dispatch(DrawerActions.closeDrawer());}}
+  
+        />
+         <DrawerItem
+          label="Customer Support"
+          onPress={() =>{ navigation.navigate("CustomerSupport"),  navigation.dispatch(DrawerActions.closeDrawer());}}
+  
+        />
+         <DrawerItem
+          label="About Us"
+          onPress={() =>{ navigation.navigate("AboutUs"),  navigation.dispatch(DrawerActions.closeDrawer());}}
+  
+        />
+       
 
 
       </DrawerContentScrollView>
@@ -52,7 +88,7 @@ const DrawerNavigator = ({navigation}) => {
   return (
     <Drawer.Navigator drawerContent={()=> <CustomDrawerContent navigation={navigation} />}>
       <Drawer.Screen name="Home" component={Home} />
-      
+         
     </Drawer.Navigator>
   );
 }

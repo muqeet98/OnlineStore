@@ -15,16 +15,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: 'black'
       },
-      headerView:{
-        flexDirection: 'row',
-        backgroundColor: 'black'
-      },
       inputView:{
         marginHorizontal:15,
         flexDirection:'column',
         width: Width* 0.7,
          
       },
+      
       textInputStyle1:{
       
          width: Width* 0.66,

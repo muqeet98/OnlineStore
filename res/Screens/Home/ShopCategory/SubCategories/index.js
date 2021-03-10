@@ -16,10 +16,12 @@ import {
 } from 'react-native';
 import { useState } from 'react/cjs/react.development';
 import styles from './styles';
-const index = (props, { navigation }) => {
+const index = (props, ) => {
+	// console.log("Hello", props.route.params);
+	const {navigation} = props.route.params;
 	const { data } = props.route.params;
 	const [ data2, setData ] = useState(data);
-	console.log(JSON.stringify(data));
+	// console.log(JSON.stringify(data));
 	// // console.log(data[1].pic);
 	// console.log("GGGG", data[0].products);
 
@@ -38,7 +40,6 @@ const index = (props, { navigation }) => {
 	};
 
 	const itemlist = (item) => {
-		// console.log("Hello Proce", item.item.products);
 		return (
 			<View>
 				<View>

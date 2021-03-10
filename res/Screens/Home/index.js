@@ -9,12 +9,15 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from "./styles";
 const Home = ({ navigation }) => {
   return (
-    <ScrollView style={styles.MainContainer}>
-       <HeaderView navigation={navigation}/> 
+    <View style={styles.MainContainer}>
+             <HeaderView navigation={navigation}/> 
+      <ScrollView>
+
        <Category navigation={navigation}/>
        <ShopCategory navigation={navigation}/>
        <Category navigation={navigation}/>
     </ScrollView>
+    </View>
   );
 };
 

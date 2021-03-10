@@ -6,14 +6,13 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from "./styles";
 // import Atta from "../../constants";
 const index = ({navigation}) => {
-
+console.log("HA B",navigation);
     // const [dataD]= React.useState(data);
 //  console.log(JSON.stringify(CONTENT));
     const itemlist= (item) => {
-        console.log("hai zia",JSON.stringify(item.item.subcategory));
         return(
             <View>
-                <TouchableOpacity onPress={()=> navigation.navigate("SubCategories",{data: item.item.subcategory})}>
+                <TouchableOpacity onPress={()=> navigation.navigate("SubCategories",{data: item.item.subcategory, navigation: navigation})}>
             <View style={styles.itemContainer}>
                 <View style={{borderColor:'#ec6805', borderWidth: 1,borderRadius: 20}}>
                     <Image source={{uri: item.item.picture}} style={styles.ImageView}/>   

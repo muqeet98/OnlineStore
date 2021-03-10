@@ -64,11 +64,6 @@ const styles = StyleSheet.create({
         marginTop:20,
         paddingLeft: 15
       },
-      unitButtonContainer:{
-         flexDirection:'row',
-         paddingBottom: 18
-
-      },
 
       
       seeAll:{
@@ -86,7 +81,54 @@ const styles = StyleSheet.create({
 
     DestextContainer:{
         paddingBottom: 25
-    }
+    },
+
+
+    //addButton
+    buttonContainer:{
+      //   width: Width * 0.4,
+      //   height: Height* 0.05,
+        borderRadius: 30,
+        flexDirection:'row',
+      //   borderWidth: 1,
+      //   borderColor: "red"
+    },
+    
+    AddButton:{
+       
+        alignItems:"center",
+        borderRadius: 3,
+        justifyContent: 'center',
+        backgroundColor: '#ec6805',
+        width:Width* 0.3,
+        height: Height*0.04
+    },
+
+    AddButton2:{
+       
+      alignItems:"center",
+      borderRadius: 3,
+      justifyContent: 'center',
+      backgroundColor: '#ec6805',
+      width:Width* 0.08,
+      height: Height*0.04
+  },
+
+  countTextContainer:{
+      width: Width* 0.22,
+      height: Height* 0.04,
+      alignItems:'center',
+      justifyContent:'center'
+  },
+  text2: {
+    fontSize: RFValue(14),
+    color: "#ec6805"
+},
+text3: {
+    fontSize: RFValue(14),
+    color: 'white'
+}
+
 
 
  
